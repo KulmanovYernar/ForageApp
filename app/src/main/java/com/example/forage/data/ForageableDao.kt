@@ -32,18 +32,18 @@ interface ForageableDao {
 
     // TODO: implement a method to retrieve all Forageables from the database
     @Query("SELECT * FROM forageable_database")
-    suspend fun getForageables(): Flow<List<Forageable>>
+    fun getForageables(): Flow<List<Forageable>>
     // TODO: implement a method to retrieve a Forageable from the database by id
     @Query("SELECT * FROM forageable_database WHERE id = :id")
-    suspend fun getForageable(id:Long):Flow<Forageable>
+    fun getForageable(id:Long):Flow<Forageable>
     // TODO: implement a method to insert a Forageable into the database
     //  (use OnConflictStrategy.REPLACE)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(forageable: Forageable)
+    fun insert(forageable: Forageable)
     // TODO: implement a method to update a Forageable that is already in the database
     @Update
-    suspend fun update(forageable: Forageable)
+    fun update(forageable: Forageable)
     // TODO: implement a method to delete a Forageable from the database.
     @Delete
-    suspend fun delete(forageable: Forageable)
+    fun delete(forageable: Forageable)
 }
